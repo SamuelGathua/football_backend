@@ -1,0 +1,7 @@
+#EXTM3U
+#EXTINF:-1 tvg-id="1",Mux Sports Demo (HLS)
+https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8
+#EXTINF:-1 tvg-id="2",Akamai Live HLS Stream
+https://cph-p2p-msl.akamaized.net/hls/live/2000341/test/master.m3u8
+#EXTINF:-1 tvg-id="3",Unified Streaming HLS Test
+https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8

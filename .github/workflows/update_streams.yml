@@ -1,0 +1,35 @@
+name: Update Stream Links Daily
+
+on:
+  schedule:
+    # Runs automatically every day at midnight UTC
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+    # Adds a button in the GitHub UI to run this manually anytime
+
+jobs:
+  update-streams:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Grants the action permission to commit files
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run stream checker script
+        run: python check_streams.py
+
+      - name: Commit and push updated files
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Auto-update verified streaming links"
+          file_pattern: "working_streams.json working_streams.m3u"
